@@ -1,0 +1,13 @@
+[Unit]
+Description=aiseg2-proxy Service
+After=network.target
+
+[Service]
+Type=simple
+Environment="AISEG2_USER=user" "AISEG2_PASSWORD=pass"
+ExecStart=/opt/bin/aiseg2-proxy --aiseg 192.168.0.216 --listen :9000
+Restart=always
+RestartSec=30s
+
+[Install]
+WantedBy=multi-user.target
